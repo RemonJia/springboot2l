@@ -28,7 +28,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .successHandler(new LoginSuccessHandler())
                 .loginPage("/login")
-                .loginProcessingUrl("/logon")
+                .loginProcessingUrl("/index")
                 //.defaultSuccessUrl("/logon")
                 //.failureUrl("/login?error")
                 .permitAll()
@@ -56,15 +56,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public PasswordEncoder encoder() {
         return new BCryptPasswordEncoder(11);
     }
- /*   @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-       *//* auth.inMemoryAuthentication()
-                .passwordEncoder(new BCryptPasswordEncoder())
-                .withUser("user")
-                .password(new BCryptPasswordEncoder().encode("123456"))
-                .roles("USER");*//*
-        auth.userDetailsService(new MyUserDetailService(userService));
-
-    }*/
-
 }

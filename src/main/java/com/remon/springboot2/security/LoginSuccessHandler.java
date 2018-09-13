@@ -10,6 +10,6 @@ import java.io.IOException;
 public class LoginSuccessHandler implements org.springframework.security.web.authentication.AuthenticationSuccessHandler {
     @Override
     public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
-        httpServletRequest.getRequestDispatcher("/logon").forward(httpServletRequest, httpServletResponse);
+        httpServletRequest.getRequestDispatcher("/index").forward(httpServletRequest, httpServletResponse);
     }
 }

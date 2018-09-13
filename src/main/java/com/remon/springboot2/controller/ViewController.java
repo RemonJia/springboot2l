@@ -11,9 +11,9 @@ public class ViewController {
         return "login";
     }
     //登录动作
-    @RequestMapping("/logon")
+    @RequestMapping("/index")
     public String logon(){
-        return "hello";
+        return "index";
     }
     //注销（登出）
     @RequestMapping("/logout")

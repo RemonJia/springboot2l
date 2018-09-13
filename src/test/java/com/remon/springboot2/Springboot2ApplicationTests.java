@@ -3,6 +3,7 @@ package com.remon.springboot2;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
@@ -11,6 +12,10 @@ public class Springboot2ApplicationTests {
 
     @Test
     public void contextLoads() {
+    }
+    @Test
+    public void encodePwd(){
+        System.out.println(new BCryptPasswordEncoder(11).encode("123456"));
     }
 
 }

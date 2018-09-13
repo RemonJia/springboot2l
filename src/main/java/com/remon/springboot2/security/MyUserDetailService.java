@@ -5,6 +5,7 @@ import com.remon.springboot2.service.UserService;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class MyUserDetailService implements UserDetailsService{
     private final UserService userService;

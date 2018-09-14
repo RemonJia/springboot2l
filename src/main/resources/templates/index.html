@@ -13,16 +13,11 @@
 
 	<script type="text/javascript">
         $(document).ready(function(){
+            //日期显示
             getDate01();
-            loadMenu('YEWUMOKUAI', "dleft_tab1");
-           /* $(document).ajaxStart(onStart).ajaxSuccess(onStop);
-            /!** 默认异步加载"业务模块"目录  **!/
-            loadMenu('YEWUMOKUAI', "dleft_tab1");
-            // 默认展开所有节点
-            if( zTree ){
-                // 默认展开所有节点
-                zTree.expandAll(true);
-            }*/
+            //菜单加载
+            loadMenu('business', "dleft_tab1");
+
         });
         /**获得当前日期**/
         function  getDate01(){
@@ -174,16 +169,17 @@
             }
         }
         function loadMenu(resourceType, treeObj){
-            /*$.ajax({
-                type:"POST",
-                url:"${dynamicURL}/authority/modelPart.action?resourceType=" + resourceType,
+            console.log("加载菜单---"+resourceType);
+           	$.ajax({
+                type:"GET",
+                url:"/loadMenu?resourceType=" + resourceType,
                 dataType : "json",
                 success:function(data){
+                    console.log(data);
                     // 如果返回数据不为空，加载"业务模块"目录
                     if(data != null){
                         // 将返回的数据赋给zTree
                         $.fn.zTree.init($("#"+treeObj), setting, data);
-                         alert(treeObj);
                         zTree = $.fn.zTree.getZTreeObj(treeObj);
                         if( zTree ){
                             // 默认展开所有节点
@@ -191,12 +187,12 @@
                         }
                     }
                 }
-            });*/
-            data = [
-                {"accessPath":"","checked":false,"delFlag":0,"parentID":1,"resourceCode":"","resourceDesc":"","resourceGrade":2,"resourceID":2,"resourceName":"业务管理","resourceOrder":0,"resourceType":""},
-                {"accessPath":"","checked":false,"delFlag":0,"parentID":2,"resourceCode":"","resourceDesc":"","resourceGrade":2,"resourceID":21,"resourceName":"业务配置","resourceOrder":0,"resourceType":""},
-                {"accessPath":"","checked":false,"delFlag":0,"parentID":1,"resourceCode":"","resourceDesc":"","resourceGrade":2,"resourceID":3,"resourceName":"资源管理","resourceOrder":1,"resourceType":""},
-                {"accessPath":"","checked":false,"delFlag":0,"parentID":1,"resourceCode":"","resourceDesc":"","resourceGrade":2,"resourceID":4,"resourceName":"基础字典","resourceOrder":2,"resourceType":""}
+            });
+          /*  data = [
+                /!*{"accessPath":"","checked":false,"delFlag":0,"parentID":1,"resourceCode":"","resourceDesc":"","resourceGrade":2,"resourceID":2,"resourceName":"业务管理","resourceOrder":0,"resourceType":""},
+                {"accessPath":"","checked":false,"delFlag":0,"parentID":2,"resourceCode":"","resourceDesc":"","resourceGrade":2,"resourceID":21,"resourceName":"业务配置","resourceOrder":0,"resourceType":""}*!/
+                {"accessPath":"","checked":false,"delFlag":0,"parentID":1,"resourceGrade":2,"resourceID":2,"resourceName":"业务管理","resourceOrder":0,"resourceType":""}
+                ,{"accessPath":"","checked":false,"delFlag":0,"parentID":2,"resourceGrade":2,"resourceID":21,"resourceName":"业务配置","resourceOrder":0,"resourceType":""}
                 ];
             // 如果返回数据不为空，加载"业务模块"目录
             if(data != null){
@@ -208,7 +204,7 @@
                     // 默认展开所有节点
                     zTree.expandAll(true);
                 }
-            }
+            }*/
         }
 	</script>
 </head>

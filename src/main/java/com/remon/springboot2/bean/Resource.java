@@ -1,8 +1,8 @@
 package com.remon.springboot2.bean;
 
 public class Resource {
-    private long resourceId;
-    private long parentId;
+    private long resourceID;
+    private long parentID;
     private String accessPath;
     private boolean checked;
     private boolean delFlag;
@@ -13,20 +13,20 @@ public class Resource {
     private  int resourceOrder;
     private  String resourceType;
 
-    public long getResourceId() {
-        return resourceId;
+    public long getResourceID() {
+        return resourceID;
     }
 
-    public void setResourceId(long resourceId) {
-        this.resourceId = resourceId;
+    public void setResourceID(long resourceID) {
+        this.resourceID = resourceID;
     }
 
-    public long getParentId() {
-        return parentId;
+    public long getParentID() {
+        return parentID;
     }
 
-    public void setParentId(long parentId) {
-        this.parentId = parentId;
+    public void setParentID(long parentID) {
+        this.parentID = parentID;
     }
 
     public String getAccessPath() {

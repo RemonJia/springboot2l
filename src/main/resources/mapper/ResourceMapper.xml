@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.remon.springboot2.dao.ResourceDao">
+
+    <select id="getResourceById" resultType="Resource">
+        SELECT
+              resourceid, parentid, accesspath, checked, delFlag, resourceCode, resourceGrade, resourceName, resourceOrder, resourceType
+        FROM resource
+        WHERE resourceid = #{id}
+    </select>
+    <select id="getResourcesByType" resultType="Resource">
+        SELECT
+              resourceid, parentid, accesspath, checked, delFlag, resourceCode, resourceGrade, resourceName, resourceOrder, resourceType
+        FROM resource
+        WHERE resourceType = #{type}
+    </select>
+    <update id="updateResource">
+        UPDATE resource
+        SET
+            parentid=#{Rsrc.parentId},
+            accesspath=#{Rsrc.accessPath},
+            checked=#{Rsrc.checked},
+            delFlag=#{Rsrc.delFlag},
+            resourceCode=#{Rsrc.resourceCode},
+            resourceGrade=#{Rsrc.resourceGrade},
+            resourceName=#{Rsrc.resourceName},
+            resourceOrder=#{Rsrc.resourceOrder},
+            resourceType=#{Rsrc.resourceType}
+        WHERE resourceid = #{di.id}
+    </update>
+    <insert id="insertResource">
+        INSERT INTO
+            resource(parentid, accesspath, checked, delFlag, resourceCode, resourceGrade, resourceName, resourceOrder, resourceType)
+            VALUES (
+                #{Rsrc.parentId},
+                #{Rsrc.accessPath},
+                #{Rsrc.checked},
+                #{Rsrc.delFlag},
+                #{Rsrc.resourceCode},
+                #{Rsrc.resourceGrade},
+                #{Rsrc.resourceName},
+                #{Rsrc.resourceOrder},
+                #{Rsrc.resourceType}
+            )
+    </insert>
+    <delete id="deleteResource">
+        DELETE resource WHERE resourceid = #{id}
+    </delete>
+
+</mapper>

@@ -8,19 +8,19 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class MyUserDetailService implements UserDetailsService{
-    private final UserService userService;
+        private final UserService userService;
 
     public MyUserDetailService(UserService userService) {
-        this.userService = userService;
-    }
-
-    @Override
-    public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        User user = userService.findUserByName(userName);
-        if (null != user) {
-            return user;
+            this.userService = userService;
         }
-        throw new UsernameNotFoundException("User name" + userName + "not find");
 
-    }
+        @Override
+        public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
+            User user = userService.findUserByName(userName);
+            if (null != user) {
+                return user;
+            }
+            throw new UsernameNotFoundException("User name" + userName + "not find");
+
+        }
 }

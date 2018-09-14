@@ -5,6 +5,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletResponse;
+
 @Controller
 public class ViewController {
     private Logger log = LoggerFactory.getLogger(ViewController.class);
@@ -19,6 +21,12 @@ public class ViewController {
         log.info("登录成功");
         return "index";
     }
+    @RequestMapping("/welcome")
+    public String welcome(HttpServletResponse response){
+        response.addHeader("X-Frame-Options","SAMEORIGIN");
+        return "welcome";
+    }
+
     //注销（登出）
     @RequestMapping("/logout")
     public String logout(){

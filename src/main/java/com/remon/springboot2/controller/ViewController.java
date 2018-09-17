@@ -22,8 +22,7 @@ public class ViewController {
         return "index";
     }
     @RequestMapping("/welcome")
-    public String welcome(HttpServletResponse response){
-        response.addHeader("X-Frame-Options","SAMEORIGIN");
+    public String welcome(){
         return "welcome";
     }
 

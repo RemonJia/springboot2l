@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.remon.springboot2.dao.EntityDao">
+
+    <select id="getEntityById" resultType="Entity">
+        SELECT
+              entityid, entityname, entitycode, isdel
+        FROM entity
+        WHERE entityid = #{id}
+    </select>
+    <select id="getEntitysByName" resultType="Entity">
+        SELECT
+              entityid, entityname, entitycode, isdel
+        FROM entity
+        WHERE entityname = #{name}
+    </select>
+    <select id="getEntitys" resultType="Entity">
+        SELECT
+              entityid, entityname, entitycode, isdel
+        FROM entity
+        WHERE isdel = 0
+    </select>
+    <update id="updateEntity">
+        UPDATE Entity
+        SET
+            entityname=#{ett.entityname},
+            entitycode=#{ett.entitycode},
+            isdel=#{ett.isdel}
+        WHERE entityid = #{ett.id}
+    </update>
+    <insert id="insertEntity">
+        INSERT INTO
+            Entity( entityname, entitycode, isdel)
+            VALUES (
+               #{ett.entityname},
+                #{ett.entitycode},
+                #{ett.isdel}
+            )
+    </insert>
+    <delete id="deleteEntity">
+        DELETE Entity WHERE Entityid = #{id}
+    </delete>
+
+</mapper>

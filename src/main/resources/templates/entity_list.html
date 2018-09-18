@@ -35,9 +35,9 @@
 	        'type' : 'iframe',
 	        'hideOnOverlayClick' : false,
 	        'showCloseButton' : false,
-	        'onClosed' : function() { 
-	        	window.location.href = 'house_list.html';
-	        }
+	        'onClosed' : function() {
+                window.location.href = '/b/entity';
+            }
 	    });
 		
 	    /**编辑   **/
@@ -47,9 +47,9 @@
 	        'type' : 'iframe',
 	        'hideOnOverlayClick' : false,
 	        'showCloseButton' : false,
-	        'onClosed' : function() { 
-	        	window.location.href = 'entity_list.html';
-	        }
+	        'onClosed' : function() {
+                window.location.href = '/b/entity';
+            }
 	    });
 	});
 	/** 用户角色   **/
@@ -164,7 +164,7 @@
 
 						</div>
 						<div id="box_bottom">
-							<input type="button" value="查询" class="ui_input_btn01" onclick="search();" /> 
+							<input th:type="submit" th:value="查询" class="ui_input_btn01" />
 							<input type="button" value="新增" class="ui_input_btn01" id="addBtn" />
 							<input type="button" value="删除" class="ui_input_btn01" onclick="batchDel();" /> 
 							<input type="button" value="导入" class="ui_input_btn01" id="importBtn" />
@@ -188,7 +188,7 @@
 								<td th:text="${ett.entityname}"></td>
 								<td th:text="${ett.entitycode}"></td>
 								<td>
-									<a href="entity_edit.html?fyID=14458579642011" class="edit">编辑</a>
+									<a th:href="@{'/b/entity_edit?eid='+${ett.entityid}}" class="edit">编辑</a>
 									<a href="javascript:del();">删除</a>
 								</td>
 							</tr>

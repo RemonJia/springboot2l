@@ -42,6 +42,7 @@
 				<tr>
 					<td class="ui_text_rt" width="80">实体名称</td>
 					<td class="ui_text_lt">
+						<input th:type="hidden" th:value="${curr_entityid}"  th:name="entityid"/>
 						<input th:type="text" th:field="*{entityname}" th:id="ettname_id" class="ui_select01"></input>
 					</td>
 				</tr>

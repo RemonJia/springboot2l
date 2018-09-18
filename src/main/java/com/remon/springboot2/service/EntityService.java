@@ -6,10 +6,11 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface EntityService {
-    Entity getEntityById(@Param("id") long id);
-    int updateEntity(@Param("ett") Entity entity);
-    int insertEntity(@Param("ett") Entity entity);
-    int deleteEntity(@Param("ett") long id);
-    List<Entity> getEntitysByName(@Param("name") String name);
+    Entity getEntityById(long id);
+    int updateEntity(Entity entity);
+    int insertEntity(Entity entity);
+    int deleteEntity(long id);
+    List<Entity> getEntitysByName(String name);
+    List<Entity> getEntitysByName(String name,String code);
     List<Entity> getEntitys();
 }

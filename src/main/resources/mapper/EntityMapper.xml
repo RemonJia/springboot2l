@@ -12,9 +12,22 @@
     </select>
     <select id="getEntitysByName" resultType="Entity">
         SELECT
+        entityid, entityname, entitycode, isdel
+        FROM entity
+        WHERE isdel=0  and entitycode=#{name}
+    </select>
+    <select id="getEntitysByFuzzy" resultType="Entity">
+
+        SELECT
               entityid, entityname, entitycode, isdel
         FROM entity
-        WHERE entityname = #{name}
+        WHERE isdel=0
+        <if test="name != null and name != ''">
+           and entitycode like "%"||#{name}||"%"
+        </if>
+        <if test="code != null and code != ''">
+           and entitycode like "%"||#{code}||"%"
+        </if>
     </select>
     <select id="getEntitys" resultType="Entity">
         SELECT
@@ -28,7 +41,7 @@
             entityname=#{ett.entityname},
             entitycode=#{ett.entitycode},
             isdel=#{ett.isdel}
-        WHERE entityid = #{ett.id}
+        WHERE entityid = #{ett.entityid}
     </update>
     <insert id="insertEntity">
         INSERT INTO

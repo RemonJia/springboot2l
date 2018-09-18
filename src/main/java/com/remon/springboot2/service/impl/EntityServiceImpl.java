@@ -40,6 +40,11 @@ public class EntityServiceImpl implements EntityService {
     }
 
     @Override
+    public List<Entity> getEntitysByName(String name, String code) {
+        return entityDao.getEntitysByFuzzy(name,code);
+    }
+
+    @Override
     public List<Entity> getEntitys() {
         return entityDao.getEntitys();
     }

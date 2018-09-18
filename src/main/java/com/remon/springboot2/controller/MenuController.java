@@ -27,6 +27,7 @@ public class MenuController {
     public String menu(Model m){
         List menus = resourceService.getResources();
         m.addAttribute("menus",menus);
+        m.addAttribute("rootMenu",resourceService.getRootResources());
         return "menu_list";
     }
 

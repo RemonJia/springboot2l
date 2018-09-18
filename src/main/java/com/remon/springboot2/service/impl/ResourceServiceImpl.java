@@ -48,4 +48,11 @@ public class ResourceServiceImpl implements ResourceService {
     public List<Resource> getResourcesByCond(String name, String type) {
         return dao.getResourcesByNameAndType(name,type);
     }
+
+    @Override
+    public List<Resource> getRootResources() {
+        Resource resource = new Resource();
+        resource.setParentID(1L);
+        return dao.getResourcesByCond(resource);
+    }
 }

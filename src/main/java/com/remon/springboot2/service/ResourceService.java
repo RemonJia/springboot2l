@@ -13,4 +13,5 @@ public interface ResourceService {
     List<Resource> getResourcesByType(String type);
     List<Resource> getResources();
     List<Resource> getResourcesByCond(String name,String type);
+    List<Resource> getRootResources();
 }

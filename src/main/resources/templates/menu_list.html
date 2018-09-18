@@ -163,17 +163,17 @@
 						<tr>
 							<th width="30"><input type="checkbox" id="all" onclick="selectOrClearAllCheckbox(this);" />
 							</th>
-							<th>实体名称</th>
-							<th>实体编码</th>
+							<th>菜单名称</th>
+							<th>菜单类型</th>
 							<th>操作</th>
 						</tr>
-							<tr th:each="ett:${entitys}" th:align="center">
-								<td><input type="checkbox" th:id="${ett.entityid}" th:name="ettcheck" onclick="selectCheckbox(this);" /></td>
-								<td th:text="${ett.entityname}"></td>
-								<td th:text="${ett.entitycode}"></td>
+							<tr th:each="m:${menus}" th:align="center">
+								<td><input type="checkbox" th:id="${m.resourceID}" th:name="menucheck" onclick="selectCheckbox(this);" /></td>
+								<td th:text="${m.resourceName}"></td>
+								<td th:text="${m.resourceType}"></td>
 								<td>
-									<a th:href="@{'/b/entityEdit?eid='+${ett.entityid}}" class="edit">编辑</a>
-									<a th:href="@{'/b/entityDel?eid='+${ett.entityid}}">删除</a>
+									<a th:href="@{'/menu/menuEdit?eid='+${m.resourceID}}" class="edit">编辑</a>
+									<a th:href="@{'/menu/menuDel?eid='+${m.resourceID}}">删除</a>
 								</td>
 							</tr>
 					</table>

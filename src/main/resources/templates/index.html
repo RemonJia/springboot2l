@@ -17,7 +17,6 @@
             getDate01();
             //菜单加载
             loadMenu('business', "dleft_tab1");
-
         });
         /**获得当前日期**/
         function  getDate01(){
@@ -161,11 +160,11 @@
             }else  if('left_tab2' == tabid){
                 // $(document).ajaxStart(onStart).ajaxSuccess(onStop);
                 // 异步加载"系统管理"下的菜单
-                loadMenu('system', 'dleft_tab2');
+                loadMenu('system', 'dleft_tab1');
             }else  if('left_tab3' == tabid){
                 // $(document).ajaxStart(onStart).ajaxSuccess(onStop);
                 // 异步加载"其他"下的菜单
-                loadMenu('others', 'dleft_tab3');
+                loadMenu('others', 'dleft_tab1');
             }
         }
         function loadMenu(resourceType, treeObj){

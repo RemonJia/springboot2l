@@ -13,7 +13,7 @@ public interface EntityDao {
     Entity getEntityById(@Param("id") long id);
     int updateEntity(@Param("ett") Entity entity);
     int insertEntity(@Param("ett") Entity entity);
-    int deleteEntity(@Param("ett") long id);
+    int deleteEntity(@Param("id") long id);
     List<Entity> getEntitysByName(@Param("name") String name);
     List<Entity> getEntitysByFuzzy(@Param("name") String name,@Param("code") String code);
     List<Entity> getEntitys();

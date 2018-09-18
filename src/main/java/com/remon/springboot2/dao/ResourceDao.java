@@ -15,4 +15,7 @@ public interface ResourceDao {
     int insertResource(@Param("Rsrc") Resource Resource);
     int deleteResource(@Param("Rsrc") long id);
     List<Resource> getResourcesByType(@Param("type") String type);
+    List<Resource> getResources();
+    List<Resource> getResourcesByNameAndType(@Param("name") String name,@Param("type") String type);
+    List<Resource> getResourcesByCond(@Param("Rsrc") Resource Resource);
 }

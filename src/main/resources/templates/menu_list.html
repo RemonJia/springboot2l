@@ -16,14 +16,14 @@
 	$(document).ready(function(){
 		/** 新增   **/
 	    $("#addBtn").fancybox({
-	    	'href'  : '/b/entityEdit',
+	    	'href'  : '/menu/menuEdit',
 	    	'width' : 733,
 	        'height' : 530,
 	        'type' : 'iframe',
 	        'hideOnOverlayClick' : false,
 	        'showCloseButton' : false,
 	        'onClosed' : function() { 
-	        	window.location.href = '/b/entity';
+	        	window.location.href = '/menu/menu';
 	        }
 	    });
 		
@@ -48,17 +48,13 @@
 	        'hideOnOverlayClick' : false,
 	        'showCloseButton' : false,
 	        'onClosed' : function() {
-                window.location.href = '/b/entity';
+                window.location.href = '/menu/menu';
             }
 	    });
 	});
 	/** 用户角色   **/
 	var userRole = '';
 
-	/** 新增   **/
-	function add(){
-		$("#submitForm").attr("action", "/xngzf/archives/luruFangyuan.action").submit();	
-	}
 	function  selectCheckbox(obj) {
 		console.log(obj.id);
     }
@@ -134,20 +130,21 @@
 </style>
 </head>
 <body>
-	<form th:id="searchForm" th:name="searchForm" th:action="@{/b/fetch}" th:method="post">
+	<form th:id="searchForm" th:name="searchForm" th:action="@{/menu/fetch}" th:method="post">
 		<div id="container">
 			<div class="ui_content">
 				<div class="ui_text_indent">
 					<div id="box_border">
 						<div id="box_top">搜索</div>
 						<div id="box_center">
-							实体名称
+							菜单名称
 							&nbsp;&nbsp;
-							<input th:type="text" th:id="ettnameid" th:name="search_ettname" th:value="${search_ettname}" class="ui_input_txt02" />
-							实体编码
+							<input th:type="text" th:id="ettnameid" th:name="search_menuname" th:value="${search_ettname}" class="ui_input_txt02" />
+							菜单类型
 							&nbsp;&nbsp;
-							<input th:type="text" th:id="ettcodeid" th:name="search_ettcode" th:value="${search_ettcode}" class="ui_input_txt02" />
-
+							<select th:id="menutypeid" th:name="search_menutype">
+								<option th:each="rm:${rootMenu}" th:value="${rm.resourceID}" th:text="${rootMenu.resourceName}"></option>
+							</select>
 						</div>
 						<div id="box_bottom">
 							<input th:type="submit" th:value="查询" class="ui_input_btn01" />

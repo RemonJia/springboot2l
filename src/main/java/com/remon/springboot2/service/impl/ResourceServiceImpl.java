@@ -38,4 +38,14 @@ public class ResourceServiceImpl implements ResourceService {
     public List<Resource> getResourcesByType(String type) {
         return dao.getResourcesByType(type);
     }
+
+    @Override
+    public List<Resource> getResources() {
+        return dao.getResources();
+    }
+
+    @Override
+    public List<Resource> getResourcesByCond(String name, String type) {
+        return dao.getResourcesByNameAndType(name,type);
+    }
 }

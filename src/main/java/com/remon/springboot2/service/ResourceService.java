@@ -10,5 +10,7 @@ public interface ResourceService {
     int updateResource(Resource Resource);
     int insertResource(Resource Resource);
     int deleteResource(long id);
-    List<Resource> getResourcesByType(@Param("type") String type);
+    List<Resource> getResourcesByType(String type);
+    List<Resource> getResources();
+    List<Resource> getResourcesByCond(String name,String type);
 }

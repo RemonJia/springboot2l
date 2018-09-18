@@ -23,10 +23,12 @@
         FROM entity
         WHERE isdel=0
         <if test="name != null and name != ''">
-           and entitycode like "%"||#{name}||"%"
+            <bind name="namepattern" value="'%' + name + '%'" />
+           and entityname like #{namepattern}
         </if>
         <if test="code != null and code != ''">
-           and entitycode like "%"||#{code}||"%"
+            <bind name="codepattern" value="'%' + code + '%'" />
+           and entitycode like #{codepattern}
         </if>
     </select>
     <select id="getEntitys" resultType="Entity">
@@ -53,7 +55,7 @@
             )
     </insert>
     <delete id="deleteEntity">
-        DELETE Entity WHERE Entityid = #{id}
+        DELETE from Entity WHERE Entityid = #{id}
     </delete>
 
 </mapper>

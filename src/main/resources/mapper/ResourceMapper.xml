@@ -10,11 +10,62 @@
         FROM resource
         WHERE resourceid = #{id}
     </select>
+    <select id="getResources" resultType="Resource">
+        SELECT
+              resourceid, parentid, accesspath, checked, delFlag, resourceCode, resourceGrade, resourceName, resourceOrder, resourceType
+        FROM resource
+        WHERE delFlag=0
+    </select>
     <select id="getResourcesByType" resultType="Resource">
         SELECT
               resourceid, parentid, accesspath, checked, delFlag, resourceCode, resourceGrade, resourceName, resourceOrder, resourceType
         FROM resource
         WHERE resourceType = #{type}
+    </select>
+    <select id="getResourcesByNameAndType" resultType="Resource">
+        SELECT
+              resourceid, parentid, accesspath, checked, delFlag, resourceCode, resourceGrade, resourceName, resourceOrder, resourceType
+        FROM resource
+        WHERE delFlag=0
+        <if test="name != null and name != ''">
+            <bind name="namepattern" value="'%' + name + '%'" />
+            and resourceName like  #{namepattern}
+        </if>
+        <if test="type != null and type != ''">
+            and resourceType = #{type}
+        </if>
+    </select>
+    <select id="getResourcesByCond" resultType="Resource">
+        SELECT
+        resourceid, parentid, accessPath, checked, delFlag, resourceCode, resourceGrade
+        , resourceName, resourceOrder, resourceType
+        FROM resource
+        WHERE delFlag=0
+        <if test="Rsrc.resourceID != null and Rsrc.resourceID != ''">
+            and resourceID = #{Rsrc.resourceID}
+        </if>
+        <if test="Rsrc.parentID != null and Rsrc.parentID != ''">
+            and parentID = #{Rsrc.parentID}
+        </if>
+        <if test="Rsrc.accessPath != null and Rsrc.accessPath != ''">
+            and accessPath = #{Rsrc.accessPath}
+        </if>
+        <if test="Rsrc.checked != null and Rsrc.checked != ''">
+            and checked = #{Rsrc.checked}
+        </if>
+        <if test="Rsrc.resourceCode != null and Rsrc.resourceCode != ''">
+            and resourceCode = #{Rsrc.resourceCode}
+        </if>
+        <if test="Rsrc.resourceGrade != null and Rsrc.resourceGrade != ''">
+            and resourceGrade = #{Rsrc.resourceGrade}
+        </if>
+        <if test="Rsrc.resourceName != null and Rsrc.resourceName != ''">
+            <bind name="namepattern" value="'%' + Rsrc.resourceName + '%'" />
+            and resourceName like  #{namepattern}
+        </if>
+        <if test="Rsrc.resourceType != null and Rsrc.resourceType != ''">
+            and resourceType = #{Rsrc.resourceType}
+        </if>
     </select>
     <update id="updateResource">
         UPDATE resource
